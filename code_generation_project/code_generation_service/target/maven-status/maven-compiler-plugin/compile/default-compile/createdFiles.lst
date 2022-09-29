@@ -1,7 +1,0 @@
-com\syhc\common\servlet\ApplicationDispatcherServlet.class
-com\syhc\common\servlet\AuthenticationFilter.class
-com\syhc\generation\controller\CodeGenerationController.class
-com\syhc\common\controller\ParentController.class
-com\syhc\common\initializate\SystemInitializateTask.class
-com\syhc\CodeGenerationServiceApplication.class
-com\syhc\common\tools\PageLimitTag.class

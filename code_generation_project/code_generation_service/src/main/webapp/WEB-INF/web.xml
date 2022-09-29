@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app>
-  <display-name>code_generation_service</display-name>
-  <context-param>
-    <param-name>log4jConfiguration</param-name>
-    <param-value>classpath:platform_log4j2.xml</param-value>
-  </context-param>
-</web-app>
