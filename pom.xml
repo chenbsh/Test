@@ -19,8 +19,9 @@
     <packaging>pom</packaging>
 
     <properties>
+        <!--JDK版本-->
         <java.version>1.8</java.version>
-        <!--版本-->
+        <!--版本编号-->
         <pchc.version>0.0.1-SNAPSHOT</pchc.version>
     </properties>
 
