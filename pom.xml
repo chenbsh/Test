@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <!--Spring Boot 版本-->
+        <!--SpringBoot版本号2.2.2-->
         <version>2.2.2.RELEASE</version>
     </parent>
 
