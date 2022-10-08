@@ -43,7 +43,7 @@
 						
 							<td class="table_record">${entity.databaseName}&nbsp;</td>
 							<td class="table_record">${entity.tableComment}&nbsp;</td>
-							<td class="table_record"><a href="${pageContext.request.contextPath}/code/generation/columnList?tableName=${entity.tableName}" style="text-decoration: none;">${entity.tableName}</a></td>
+							<td class="table_record"><a href="javascript:gotoConfigTalbe('${entity.tableComment}','${entity.tableName}');" style="text-decoration: none;">${entity.tableName}</a></td>
 							<td class="table_record">${entity.tableCollation}&nbsp;</td>
 							<td class="table_record">${entity.createTime}&nbsp;</td>
 							
@@ -59,9 +59,18 @@
 			</tr>
 			<tr><td></td></tr>
 		</table>
+		<input type="hidden" id="tableComment" name="tableComment" value=""/>
+		<input type="hidden" id="tableName" name="tableName" value=""/>
 	</form>
 </body>
 </html>
 <script type="text/javascript">
 	<c:if test="${alertMsg != null}">alert("${alertMsg}");</c:if>
+
+	function gotoConfigTalbe(tableComment,tableName){
+		document.getElementById("tableName").value=tableName;
+		document.getElementById("tableComment").value=tableComment;
+		document.insertForm.action="${pageContext.request.contextPath}/code/generation/columnList";
+		document.insertForm.submit();
+	}
 </script>

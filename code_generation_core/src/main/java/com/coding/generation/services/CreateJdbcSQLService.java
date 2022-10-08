@@ -91,6 +91,7 @@ public class CreateJdbcSQLService {
         if (statisticsFlag) {
             this.statisticsSQL(databaseName, tableName, tableComment, sqlList);
         }
+
         // 生成SQL语句
         fileTools.writeFile(sqlList, databaseName, tableName, tableName + ".sql");
         return true;
@@ -218,6 +219,16 @@ public class CreateJdbcSQLService {
         sqlList.add("#根据动态查询条件统计" + tableComment + "信息实例记录数");
         String propertyKey = this.propertyHead(tableName) + "_statisticsForListByCondition=";
         sqlList.add(propertyKey + "select count(1) as totalno from " + tableName + " t #condition#");
+    }
+
+    private void groupByColumn(String tableName, TableColumnBean column, List<String> sqlList) {
+        String columnName = null;
+        columnName = column.getColumnName();
+        columnName = columnName.substring(0, 1).toUpperCase() + columnName.substring(1, columnName.length());
+        String propertyKey = this.propertyHead(tableName) + "_groupBy" + columnName;
+
+        sqlList.add("#根据" + column.getColumnComment() + "集合进行分组统计存在 XXXXXXXX 数据记录条数");
+        sqlList.add(propertyKey + "=" + "select t." + column.getColumnName() + ",count(1) as total from XXXXXXXX t where t." + column.getColumnName() + "in (#condition#) group by " + column.getColumnName());
     }
 
 }
